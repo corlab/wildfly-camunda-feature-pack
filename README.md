@@ -1,6 +1,6 @@
 ![Galleon Pack Template Java CI](https://github.com/wildfly/wildfly-feature-pack-template/workflows/Galleon%20Pack%20Template%20Java%20CI/badge.svg)
 
-# Wildfly Galleon Feature Pack Template
+# Wildfly Camunda Feature Pack
 A template Galleon feature pack to provision a new subsystem into WildFly using Galleon. 
 It is runnable as-is, and provides a very basic subsystem which supplies a CDI `@Produces` method. 
 Instances from this `@Produces` method are available to your deployments when your subsystem is 
@@ -27,31 +27,6 @@ and it will build everything, and run the testsuite. An example patched server
 will be created in the `build/target/` directory. We will explore how to use
 Galleon CLI to provision a server from the command line later on.
 
-## Running the example application
-
-The example application lives in the 
-[`example/`](example)
-directory. It is a trivial application exposing a 
-[REST endpoint](example/src/main/java/org/wildfly/extension/feature/pack/template/example/JaxRsResource.java) 
-which is injected with an instance of the bean we have a `@Produces` for in the subsystem's dependency 
-[`dependency/`](dependency)
-folder. 
-The `@ExampleQualifier` Qualifier is also defined in the `dependency/` folder. 
-
-Start the server by running
-```
-./build/target/wildfly-<WildFly Version>-template-<Template Version>/bin/standalone.sh
-```
- 
-In another terminal window run:
-```
-mvn package wildfly:deploy -pl example
-```
-and see the application gets deployed.
-
-Then go to http://localhost:8080/example/greeting and see the hello message. It just says 'Welcome' in a different
-language each time you refresh the page.
-
 ## Project structure
 
 The [root POM](pom.xml) contains the
@@ -59,7 +34,7 @@ WildFly versions we wrote this template Galleon feature pack for at the top of t
 However, newer versions of WildFly are generally backwards compatible (unless you really dug into some server
 internals) so you can install it into a later version of WildFly. 
 
-It adds an additional layer called `template-layer`, which contains a new
+It adds an additional layer called `camunda-layer`, which contains a new
 subsystem called `template-subsystem`. This subsystem is implemented in the 
 `org.wildfly.extension.template-subsystem` module which in turn has a dependency
 on the `org.wildfly.template-dependency` module. The latter module basically
@@ -245,9 +220,9 @@ WildFly feature pack. We will add it in the next step.
 #### Install our layer
 Next we want to install our layer. We do this by running:
 ```
-~/Downloads/galleon-4.2.5.Final/bin/galleon.sh install org.wildfly.extras.wildfly-feature-pack-template:template-feature-pack:1.0.0.Alpha-SNAPSHOT --layers=template-layer --dir=wildfly
+~/Downloads/galleon-4.2.5.Final/bin/galleon.sh install de.ybroeker.wildfly-camunda-feature-pack:template-feature-pack:1.0.0.Alpha-SNAPSHOT --layers=template-layer --dir=wildfly
 ``` 
-`org.wildfly.extras.wildfly-feature-pack-template:template-feature-pack:1.0.0.Alpha-SNAPSHOT`
+`de.ybroeker.wildfly-camunda-feature-pack:template-feature-pack:1.0.0.Alpha-SNAPSHOT`
 is the Maven GAV of the Galleon feature pack (i.e. what we have in 
 [`feature-pack/pom.xml`](feature-pack/pom.xml)).
 
@@ -309,5 +284,5 @@ To debug failures in the provisioning of the server of the creation of the Galle
 good to run `mvn install -X` which will provide more logging.
 
 If the above doesn't shed any light on your problems, it can also be good to look at the 
-`feature-pack/target/layout/org.wildfly.extras.wildfly-feature-pack-template/template-feature-pack/<version>/`
+`feature-pack/target/layout/de.ybroeker.wildfly-camunda-feature-pack/template-feature-pack/<version>/`
 directory to see if everything you expected there.

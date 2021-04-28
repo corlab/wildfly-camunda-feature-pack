@@ -21,13 +21,13 @@
         <artifactId>jboss-parent</artifactId>
         <version>35</version>
     </parent>
-    <groupId>org.wildfly.extras.wildfly-feature-pack-template</groupId>
-    <artifactId>template-parent</artifactId>
+    <groupId>de.ybroeker.wildfly-camunda-feature-pack</groupId>
+    <artifactId>wildfly-camunda-bpm-pack-parent</artifactId>
     <version>1.0.0.Alpha-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <name>WildFly Galleon FP Template - Parent</name>
+    <name>WildFly Camunda Galleon Pack - Parent</name>
   
-    <description>WildFly Galleon Pack Template</description>
+    <description>WildFly Camunda Galleon Pack</description>
 
     <licenses>
         <license>
@@ -52,7 +52,7 @@
         -->
         <version.org.wildfly.common>1.5.4.Final</version.org.wildfly.common>
 
-
+        <version.org.camunda.bpm>7.14.0</version.org.camunda.bpm>
 
 
         <!-- Other dependency versions -->
@@ -79,11 +79,11 @@
         <maven.redhat.repository.url>${maven.repository.protocol}://maven.repository.redhat.com/ga/</maven.redhat.repository.url>
 
         <!-- Name of the built server -->
-        <server.name>wildfly-${version.org.wildfly}-template-${project.version}</server.name>
+        <server.name>wildfly-${version.org.wildfly}-camunda-feature-pack-${project.version}</server.name>
         <wildfly.build.output.dir>build/target/${server.name}</wildfly.build.output.dir>
 
         <!-- Galleon -->
-        <galleon.fork.embedded>true</galleon.fork.embedded>
+        <galleon.fork.embedded>false</galleon.fork.embedded>
         <galleon.log.time>true</galleon.log.time>
         <!-- Builds need to override this -->
         <galleon.wildfly.home>/tmp</galleon.wildfly.home>
@@ -123,6 +123,20 @@
             <url>${maven.redhat.repository.url}</url>
             <layout>default</layout>
         </repository>
+        <repository>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </snapshots>
+            <id>camunda-bpm</id>
+            <name>camunda-bpm</name>
+            <url>https://app.camunda.com/nexus/content/repositories/camunda-bpm/</url>
+            <layout>default</layout>
+        </repository>
     </repositories>
     <dependencyManagement>
         <dependencies>
@@ -143,33 +157,49 @@
             </dependency>
 
 
+            <!-- Camunda BOM-->
+            <dependency>
+                <groupId>org.camunda.bpm</groupId>
+                <artifactId>camunda-bom</artifactId>
+                <version>${version.org.camunda.bpm}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>org.camunda.commons</groupId>-->
+<!--                <artifactId>camunda-commons-bom</artifactId>-->
+<!--                <version>1.9.0</version>-->
+<!--                <scope>import</scope>-->
+<!--                <type>pom</type>-->
+<!--            </dependency>-->
+<!--            <dependency>-->
+<!--                <groupId>org.camunda.connect</groupId>-->
+<!--                <artifactId>camunda-connect-bom</artifactId>-->
+<!--                <version>${version.camunda.connect}</version>-->
+<!--                <scope>import</scope>-->
+<!--                <type>pom</type>-->
+<!--            </dependency>-->
+<!--            <dependency>-->
+<!--                <groupId>org.camunda.spin</groupId>-->
+<!--                <artifactId>camunda-spin-bom</artifactId>-->
+<!--                <version>${version.camunda.spin}</version>-->
+<!--                <scope>import</scope>-->
+<!--                <type>pom</type>-->
+<!--            </dependency>-->
+<!--            <dependency>-->
+<!--                <groupId>org.camunda.template-engines</groupId>-->
+<!--                <artifactId>camunda-template-engines-bom</artifactId>-->
+<!--                <version>${version.camunda.template-engines}</version>-->
+<!--                <scope>import</scope>-->
+<!--                <type>pom</type>-->
+<!--            </dependency>-->
+
+
 
             <!-- Project -->
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>template-dependency</artifactId>
-                <version>${project.version}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>*</groupId>
-                        <artifactId>*</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-            <dependency>
-                <groupId>${project.groupId}</groupId>
-                <artifactId>template-subsystem</artifactId>
-                <version>${project.version}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>*</groupId>
-                        <artifactId>*</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-            <dependency>
-                <groupId>${project.groupId}</groupId>
-                <artifactId>template-feature-pack</artifactId>
+                <artifactId>wildfly-camunda-feature-pack</artifactId>
                 <version>${project.version}</version>
                 <type>pom</type>
                 <exclusions>
@@ -181,7 +211,7 @@
             </dependency>
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>template-feature-pack</artifactId>
+                <artifactId>wildfly-camunda-feature-pack</artifactId>
                 <version>${project.version}</version>
                 <type>zip</type>
                 <exclusions>
@@ -297,10 +327,7 @@
     </scm>
     <modules>
         <module>build</module>
-        <module>dependency</module>
-        <module>example</module>
         <module>feature-pack</module>
-        <module>subsystem</module>
         <module>testsuite</module>
     </modules>
 

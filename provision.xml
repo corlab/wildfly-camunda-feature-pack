@@ -22,27 +22,30 @@
     (note that `-dir` should have double hyphens, which don't work in XML comments!)
 -->
 <installation xmlns="urn:jboss:galleon:provisioning:3.0">
-    <feature-pack location="wildfly@maven(org.jboss.universe:community-universe):current">
+
+    <feature-pack location="wildfly@maven(org.jboss.universe:community-universe):current#21.0.1.Final">
         <default-configs inherit="false"/>
         <packages inherit="false">
             <!-- If docs/licenses is desired, uncomment this line -->
             <include name="docs.licenses"/>
         </packages>
     </feature-pack>
-    <feature-pack location="org.wildfly.extras.wildfly-feature-pack-template:template-feature-pack:1.0.0.Alpha-SNAPSHOT">
+    <feature-pack
+            location="de.ybroeker.wildfly-camunda-feature-pack:wildfly-camunda-feature-pack:1.0.0.Alpha-SNAPSHOT">
         <default-configs inherit="false"/>
         <packages inherit="false">
             <!-- If docs/licenses is desired, uncomment this line -->
-            <include name="docs.licenses.merge"/>
+            <!--        <include name="docs.licenses.merge"/>-->
         </packages>
     </feature-pack>
+
     <config model="standalone" name="standalone.xml">
         <layers>
             <!-- The base server -->
             <include name="cloud-profile"/>
 
-            <!-- Our layer(s) -->
-            <include name="template-layer"/>
+            <!-- Camunda layer -->
+            <include name="camunda-layer"/>
         </layers>
     </config>
     <options>

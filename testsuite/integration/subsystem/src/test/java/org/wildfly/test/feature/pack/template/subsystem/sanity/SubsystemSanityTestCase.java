@@ -16,42 +16,50 @@
 
 package org.wildfly.test.feature.pack.template.subsystem.sanity;
 
-import javax.inject.Inject;
-
+import org.camunda.bpm.BpmPlatform;
+import org.camunda.bpm.engine.ProcessEngine;
+import org.camunda.bpm.engine.runtime.ProcessInstance;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.wildfly.feature.pack.template.dependency.ExampleQualifier;
-import org.wildfly.feature.pack.template.dependency.Message;
 
-/**
- * @author <a href="mailto:kabir.khan@jboss.com">Kabir Khan</a>
- */
+import static org.junit.Assert.assertNotNull;
+
+
 @RunWith(Arquillian.class)
 public class SubsystemSanityTestCase {
-
-    @Inject
-    @ExampleQualifier
-    Message greeting;
 
     @Deployment
     public static WebArchive getDeployment() {
         final WebArchive webArchive = ShrinkWrap.create(WebArchive.class, "sanity-test.war")
                 .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml")
-                .addPackage(SubsystemSanityTestCase.class.getPackage());
+                .addAsWebInfResource(SubsystemSanityTestCase.class.getResource("/jboss-deployment-structure.xml"), "jboss-deployment-structure.xml")
+                .addPackage(SubsystemSanityTestCase.class.getPackage())
+                .addAsResource(SubsystemSanityTestCase.class.getResource("/HelloWorld.bpmn"),"HelloWorld.bpmn");
         return webArchive;
     }
 
     @Test
-    public void testAllOk() {
-        // Nothing much is happening here yet - we just check we can load the class
-        Assert.assertNotNull(greeting);
-        Assert.assertEquals("Welcome! (English)", greeting.getMessage());
+    public void shouldFindProcessEngine() {
+        final ProcessEngine defaultProcessEngine = BpmPlatform.getDefaultProcessEngine();
+        assertNotNull(defaultProcessEngine);
     }
-}
 
+    @Test
+    public void shouldDeployProcess() {
+        final ProcessEngine defaultProcessEngine = BpmPlatform.getDefaultProcessEngine();
+
+        final org.camunda.bpm.engine.repository.Deployment deployment = defaultProcessEngine.getRepositoryService().createDeployment()
+                .addInputStream("HelloWorld.bpmn", SubsystemSanityTestCase.class.getResourceAsStream("/HelloWorld.bpmn"))
+                .deploy();
+        assertNotNull("deployment", deployment);
+
+        final ProcessInstance processInstance = defaultProcessEngine.getRuntimeService().startProcessInstanceByKey("Hello_World");
+        assertNotNull("processInstance", processInstance);
+    }
+
+}
