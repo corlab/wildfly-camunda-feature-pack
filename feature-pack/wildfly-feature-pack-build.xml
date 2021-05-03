@@ -17,7 +17,7 @@
 TODO adjust the value of the 'producer' attribute to match the Maven groupId:artifactId of the maven project in ./pom.xml
 If you want to use a Galleon 'universe' (see the Galleon documentation) you could express that there instead.
 -->
-<build xmlns="urn:wildfly:feature-pack-build:3.1" producer="de.ybroeker.wildfly-camunda-feature-pack:template-feature-pack">
+<build xmlns="urn:wildfly:feature-pack-build:3.1" producer="de.ybroeker.wildfly-camunda-feature-pack:wildfly-camunda-feature-pack">
     <transitive>
         <dependency group-id="org.wildfly.core" artifact-id="wildfly-core-galleon-pack">
             <name>org.wildfly.core:wildfly-core-galleon-pack</name>
@@ -42,10 +42,6 @@ If you want to use a Galleon 'universe' (see the Galleon documentation) you coul
         </dependency>
     </transitive>
     <dependencies>
-
-
-
-
         <dependency group-id="org.wildfly" artifact-id="wildfly-galleon-pack">
             <name>org.wildfly:wildfly-galleon-pack</name>
             <packages inherit="true">

@@ -21,7 +21,7 @@
     <parent>
         <artifactId>wildfly-camunda-bpm-pack-parent</artifactId>
         <groupId>de.ybroeker.wildfly-camunda-feature-pack</groupId>
-        <version>1.0.0.Alpha-SNAPSHOT</version>
+        <version>1.1.0.Alpha-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -121,6 +121,11 @@
             <groupId>commons-codec</groupId>
             <artifactId>commons-codec</artifactId>
             <version>1.11</version>
+        </dependency>
+        <dependency>
+            <groupId>org.camunda.feel</groupId>
+            <artifactId>feel-engine</artifactId>
+            <version>1.13.1</version>
         </dependency>
 
         <!-- Fixed Versions to avoid conflicts with versions bundled by wildfly-->

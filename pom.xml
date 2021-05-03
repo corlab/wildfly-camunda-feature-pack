@@ -23,7 +23,7 @@
     </parent>
     <groupId>de.ybroeker.wildfly-camunda-feature-pack</groupId>
     <artifactId>wildfly-camunda-bpm-pack-parent</artifactId>
-    <version>1.0.0.Alpha-SNAPSHOT</version>
+    <version>1.1.0.Alpha-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>WildFly Camunda Galleon Pack - Parent</name>
   
@@ -40,23 +40,23 @@
         <!--
             Target WildFly version, and other parts needed for the Galleon maven plugin
         -->
-        <version.org.wildfly>20.0.0.Final</version.org.wildfly>
+        <version.org.wildfly>22.0.0.Final</version.org.wildfly>
         <!--
             The value of version.org.wildfly.core from the WildFly version tag. E.g. for 20.0.0.Final it is
             found here: https://github.com/wildfly/wildfly/blob/20.0.0.Final/pom.xml#L445
         -->
-        <version.org.wildfly.core>12.0.1.Final</version.org.wildfly.core>
+        <version.org.wildfly.core>14.0.1.Final</version.org.wildfly.core>
         <!--
             The value of version.org.wildfly.common from the WildFly Core version tag. E.g. for 12.0.1.Final it is
             found here: https://github.com/wildfly/wildfly-core/blob/12.0.1.Final/pom.xml#L217
         -->
         <version.org.wildfly.common>1.5.4.Final</version.org.wildfly.common>
 
-        <version.org.camunda.bpm>7.14.0</version.org.camunda.bpm>
+        <version.org.camunda.bpm>7.15.0</version.org.camunda.bpm>
 
 
         <!-- Other dependency versions -->
-        <version.org.jboss.arquillian.junit>1.4.0.Final</version.org.jboss.arquillian.junit>
+        <version.org.jboss.arquillian.junit>1.6.0.Final</version.org.jboss.arquillian.junit>
         <version.org.jboss.galleon>4.2.3.Final</version.org.jboss.galleon>
 
 
