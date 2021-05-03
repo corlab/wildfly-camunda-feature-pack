@@ -31,7 +31,7 @@
         </packages>
     </feature-pack>
     <feature-pack
-            location="de.ybroeker.wildfly-camunda-feature-pack:wildfly-camunda-feature-pack:1.0.0.Alpha-SNAPSHOT">
+            location="de.ybroeker.wildfly-camunda-feature-pack:wildfly-camunda-feature-pack:1.2.0.Alpha-SNAPSHOT">
         <default-configs inherit="false"/>
         <packages inherit="false">
             <!-- If docs/licenses is desired, uncomment this line -->
