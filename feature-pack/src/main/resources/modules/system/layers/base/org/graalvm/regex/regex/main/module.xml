@@ -1,0 +1,11 @@
+<module xmlns="urn:jboss:module:1.5" name="org.graalvm.regex.regex">
+  <resources>
+    <artifact name="${org.graalvm.regex:regex}" />
+  </resources>
+
+  <dependencies>
+    <module name="javax.api" />
+    <module name="sun.jdk" />
+    <module name="org.graalvm.truffle.truffle-api" />
+  </dependencies>
+</module>

@@ -23,7 +23,7 @@
     </parent>
     <groupId>de.ybroeker.wildfly-camunda-feature-pack</groupId>
     <artifactId>wildfly-camunda-bpm-pack-parent</artifactId>
-    <version>1.3.0.Alpha-SNAPSHOT</version>
+    <version>1.3.0.Alpha-RC1</version>
     <packaging>pom</packaging>
     <name>WildFly Camunda Galleon Pack - Parent</name>
   

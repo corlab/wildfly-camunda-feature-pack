@@ -1,0 +1,14 @@
+<module xmlns="urn:jboss:module:1.5" name="org.graalvm.js.js">
+  <resources>
+    <artifact name="${org.graalvm.js:js}"/>
+  </resources>
+  <dependencies>
+    <module name="javax.api" />
+    <module name="sun.jdk" />
+    <module name="org.camunda.spin.camunda-spin-core" />
+    <module name="org.graalvm.regex.regex" />
+    <module name="org.graalvm.truffle.truffle-api" />
+    <module name="org.graalvm.sdk.graal-sdk" />
+    <module name="com.ibm.icu.icu4j" />
+  </dependencies>
+</module>

@@ -21,7 +21,7 @@
     <parent>
         <artifactId>wildfly-camunda-feature-pack-testsuite</artifactId>
         <groupId>de.ybroeker.wildfly-camunda-feature-pack</groupId>
-        <version>1.3.0.Alpha-SNAPSHOT</version>
+        <version>1.3.0.Alpha-RC1</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
