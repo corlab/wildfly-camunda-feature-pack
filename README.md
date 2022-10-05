@@ -1,4 +1,4 @@
-![Galleon Pack Template Java CI](https://github.com/wildfly/wildfly-feature-pack-template/workflows/Galleon%20Pack%20Template%20Java%20CI/badge.svg)
+![Galleon Pack Template Java CI](https://github.com/corlab/wildfly-feature-pack-template/workflows/Galleon%20Pack%20Template%20Java%20CI/badge.svg)
 
 # Wildfly Camunda Feature Pack
 A template Galleon feature pack to provision a new subsystem into WildFly using Galleon. 
