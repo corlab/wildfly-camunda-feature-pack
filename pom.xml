@@ -21,7 +21,7 @@
         <artifactId>jboss-parent</artifactId>
         <version>35</version>
     </parent>
-    <groupId>aware.wildfly-camunda-feature-pack</groupId>
+    <groupId>corlab.wildfly-camunda-feature-pack</groupId>
     <artifactId>wildfly-camunda-bpm-pack-parent</artifactId>
     <version>1.4.0.Alpha-RC1</version>
     <packaging>pom</packaging>

@@ -220,9 +220,9 @@ WildFly feature pack. We will add it in the next step.
 #### Install our layer
 Next we want to install our layer. We do this by running:
 ```
-~/Downloads/galleon-4.2.5.Final/bin/galleon.sh install aware.wildfly-camunda-feature-pack:template-feature-pack:1.0.0.Alpha-SNAPSHOT --layers=template-layer --dir=wildfly
+~/Downloads/galleon-4.2.5.Final/bin/galleon.sh install corlab.wildfly-camunda-feature-pack:template-feature-pack:1.0.0.Alpha-SNAPSHOT --layers=template-layer --dir=wildfly
 ``` 
-`aware.wildfly-camunda-feature-pack:template-feature-pack:1.0.0.Alpha-SNAPSHOT`
+`corlab.wildfly-camunda-feature-pack:template-feature-pack:1.0.0.Alpha-SNAPSHOT`
 is the Maven GAV of the Galleon feature pack (i.e. what we have in 
 [`feature-pack/pom.xml`](feature-pack/pom.xml)).
 
@@ -284,5 +284,5 @@ To debug failures in the provisioning of the server of the creation of the Galle
 good to run `mvn install -X` which will provide more logging.
 
 If the above doesn't shed any light on your problems, it can also be good to look at the 
-`feature-pack/target/layout/aware.wildfly-camunda-feature-pack/template-feature-pack/<version>/`
+`feature-pack/target/layout/corlab.wildfly-camunda-feature-pack/template-feature-pack/<version>/`
 directory to see if everything you expected there.

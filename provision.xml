@@ -31,7 +31,7 @@
         </packages>
     </feature-pack>
     <feature-pack
-            location="aware.wildfly-camunda-feature-pack:wildfly-camunda-feature-pack:1.4.0.Alpha-SNAPSHOT">
+            location="corlab.wildfly-camunda-feature-pack:wildfly-camunda-feature-pack:1.4.0.Alpha-SNAPSHOT">
         <default-configs inherit="false"/>
         <packages inherit="false">
             <!-- If docs/licenses is desired, uncomment this line -->
