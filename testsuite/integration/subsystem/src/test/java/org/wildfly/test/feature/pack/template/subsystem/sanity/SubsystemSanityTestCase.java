@@ -26,6 +26,7 @@ import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.junit.Ignore;
 
 import static org.junit.Assert.assertNotNull;
 
