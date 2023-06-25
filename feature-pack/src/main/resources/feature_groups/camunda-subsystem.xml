@@ -23,7 +23,7 @@
       <param name="default" value="true"/>
       <param name="datasource" value="java:jboss/datasources/ProcessEngine"/>
       <param name="history-level" value="full"/>
-      <param name="properties" value="{jobExecutorAcquisitionName=default, isAutoSchemaUpdate=true, authorizationEnabled=true, jobExecutorDeploymentAware=true, historyCleanupBatchWindowStartTime=00:01}"/>
+      <param name="properties" value="{jobExecutorAcquisitionName=default, isAutoSchemaUpdate=false, authorizationEnabled=true, jobExecutorDeploymentAware=true, historyCleanupBatchWindowStartTime=00:01}"/>
 
       <feature spec="subsystem.camunda-bpm-platform.process-engines.plugins">
         <param name="class" value="org.camunda.bpm.application.impl.event.ProcessApplicationEventListenerPlugin"/>
