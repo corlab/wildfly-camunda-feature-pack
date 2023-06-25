@@ -33,33 +33,35 @@ import static org.junit.Assert.assertNotNull;
 @RunWith(Arquillian.class)
 public class SubsystemSanityTestCase {
 
-    // @Deployment
-    // public static WebArchive getDeployment() {
-    //     final WebArchive webArchive = ShrinkWrap.create(WebArchive.class, "sanity-test.war")
-    //             .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml")
-    //             .addAsWebInfResource(SubsystemSanityTestCase.class.getResource("/jboss-deployment-structure.xml"), "jboss-deployment-structure.xml")
-    //             .addPackage(SubsystemSanityTestCase.class.getPackage())
-    //             .addAsResource(SubsystemSanityTestCase.class.getResource("/HelloWorld.bpmn"),"HelloWorld.bpmn");
-    //     return webArchive;
-    // }
+    @Deployment
+    public static WebArchive getDeployment() {
+        final WebArchive webArchive = ShrinkWrap.create(WebArchive.class, "sanity-test.war")
+                .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml")
+                .addAsWebInfResource(SubsystemSanityTestCase.class.getResource("/jboss-deployment-structure.xml"), "jboss-deployment-structure.xml")
+                .addPackage(SubsystemSanityTestCase.class.getPackage())
+                .addAsResource(SubsystemSanityTestCase.class.getResource("/HelloWorld.bpmn"),"HelloWorld.bpmn");
+        return webArchive;
+    }
 
-    // @Test
-    // public void shouldFindProcessEngine() {
-    //     final ProcessEngine defaultProcessEngine = BpmPlatform.getDefaultProcessEngine();
-    //     assertNotNull(defaultProcessEngine);
-    // }
+    @Test
+    @Ignore
+    public void shouldFindProcessEngine() {
+        final ProcessEngine defaultProcessEngine = BpmPlatform.getDefaultProcessEngine();
+        assertNotNull(defaultProcessEngine);
+    }
 
-    // @Test
-    // public void shouldDeployProcess() {
-    //     final ProcessEngine defaultProcessEngine = BpmPlatform.getDefaultProcessEngine();
+    @Test
+    @Ignore
+    public void shouldDeployProcess() {
+        final ProcessEngine defaultProcessEngine = BpmPlatform.getDefaultProcessEngine();
 
-    //     final org.camunda.bpm.engine.repository.Deployment deployment = defaultProcessEngine.getRepositoryService().createDeployment()
-    //             .addInputStream("HelloWorld.bpmn", SubsystemSanityTestCase.class.getResourceAsStream("/HelloWorld.bpmn"))
-    //             .deploy();
-    //     assertNotNull("deployment", deployment);
+        final org.camunda.bpm.engine.repository.Deployment deployment = defaultProcessEngine.getRepositoryService().createDeployment()
+                .addInputStream("HelloWorld.bpmn", SubsystemSanityTestCase.class.getResourceAsStream("/HelloWorld.bpmn"))
+                .deploy();
+        assertNotNull("deployment", deployment);
 
-    //     final ProcessInstance processInstance = defaultProcessEngine.getRuntimeService().startProcessInstanceByKey("Hello_World");
-    //     assertNotNull("processInstance", processInstance);
-    // }
+        final ProcessInstance processInstance = defaultProcessEngine.getRuntimeService().startProcessInstanceByKey("Hello_World");
+        assertNotNull("processInstance", processInstance);
+    }
 
 }
