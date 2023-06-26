@@ -23,7 +23,7 @@
     </parent>
     <groupId>corlab.wildfly-camunda-feature-pack</groupId>
     <artifactId>wildfly-camunda-bpm-pack-parent</artifactId>
-    <version>1.4.0.Alpha-RC1</version>
+    <version>1.5.0.Alpha-RC1</version>
     <packaging>pom</packaging>
     <name>WildFly Camunda Galleon Pack - Parent</name>
   
@@ -57,12 +57,12 @@
 
         <!-- Other dependency versions -->
         <version.org.jboss.arquillian.junit>1.6.0.Final</version.org.jboss.arquillian.junit>
-        <version.org.jboss.galleon>4.2.3.Final</version.org.jboss.galleon>
+        <version.org.jboss.galleon>4.2.9.Final</version.org.jboss.galleon>
 
 
         <!-- Plugin versions and their dependency versions -->
         <version.org.wildfly.checkstyle-config>1.0.8.Final</version.org.wildfly.checkstyle-config>
-        <version.org.wildfly.galleon-plugins>4.2.3.Final</version.org.wildfly.galleon-plugins>
+        <version.org.wildfly.galleon-plugins>4.2.9.Final</version.org.wildfly.galleon-plugins>
 
         <!-- Misc. -->
         <wildfly-extras.repo.scm.connection>git@github.com:wildfly-extras/wildfly-galleon-pack-template.git</wildfly-extras.repo.scm.connection>
